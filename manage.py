@@ -6,8 +6,11 @@ from flask_script import Manager
 
 from app.main import create_app, db
 from app.main.model import user_model
+from app.main.model import blacklist_model
+from app import blueprint
 
 app = create_app('dev')
+app.register_blueprint(blueprint)
 app.app_context().push()
 
 migrate = Migrate(app, db)

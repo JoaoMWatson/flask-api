@@ -7,5 +7,14 @@ class UserDTO:
         'email': fields.String(required=True, description='user email address'),
         'username': fields.String(required=True, description='user username'),
         'password': fields.String(required=True, description='user password'),
-        'public_id': fields.String(required=True, description='user public_id')
+        'public_id': fields.String(required=False, description='user public_id')
     })
+    
+    
+class AuthDTO:
+    auth_namespace = Namespace('auth', description='authentication related operations')
+    user_auth = auth_namespace.model('auth_details', {
+        'email': fields.String(required=True, description='The email address'),
+        'password': fields.String(required=True, description='The user password')
+    })
+    
